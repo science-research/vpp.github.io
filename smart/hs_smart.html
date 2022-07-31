@@ -19,17 +19,6 @@ permalink:  "skin/frontend/js/hs_smart.js"
 {% include assets/v2/js/components/hs.quantity-counter.js %}
 
 
-$(document).on('ready', function () {
-// initialization of malihu scrollbar
-var $scrollbar = $('.js-scrollbar');
-$.HSCore.components.HSMalihuScrollBar.init($scrollbar);
-$($scrollbar).mCustomScrollbar('scrollTo', '.js-scrollbar .hs-sidebar__link.active');
-
-$.HSCore.components.HSScrollNav.init($('.js-scroll-nav'), {
-duration: 700
-});
-});
-
 $(window).on('load', function () {
 // initialization of HSMegaMenu component
 $('.js-mega-menu').HSMegaMenu({
