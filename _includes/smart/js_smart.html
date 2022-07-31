@@ -1,16 +1,17 @@
 <script src="{{ site.url }}/assets/vendor/jquery/dist/jquery.min.js"></script>
-<script src="{{ site.url }}/assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
-<script src="{{ site.url }}/assets/vendor/svg-injector/dist/svg-injector.min.js"></script>
-<script src="{{ site.url }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="{{ site.url }}/assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+{% include assets\v2\vendor\hs-megamenu\src\hs.megamenu.js %}
+{% include assets\v2\vendor\svg-injector\dist\svg-injector.min.js %}
+{% include assets\v2\vendor\malihu-custom-scrollbar-plugin\jquery.mCustomScrollbar.js %}
+{% include assets\v2\vendor\jquery-validation\dist\jquery.validate.js %}
+{% include assets\v2\vendor\hs-megamenu\src\hs.megamenu.js %}
 
-<script src="{{ site.url }}/assets/js/components/hs.header.js"></script>
-<script src="{{ site.url }}/assets/js/components/hs.svg-injector.js"></script>
-<script src="{{ site.url }}/assets/js/components/hs.malihu-scrollbar.js"></script>
-<script src="{{ site.url }}/assets/js/components/hs.unfold.js"></script>
-<script src="{{ site.url }}/assets/js/components/hs.focus-state.js"></script>
-<script src="{{ site.url }}/assets/js/components/hs.validation.js"></script>
-<script src="{{ site.url }}/assets/js/components/hs.show-animation.js"></script>
+{% include assets\v2\js\components\hs.header.js %}
+{% include assets\v2\js\components\hs.svg-injector.js %}
+{% include assets\v2\js\components\hs.malihu-scrollbar.js %}
+{% include assets\v2\js\components\hs.unfold.js %}
+{% include assets\v2\js\components\hs.focus-state.js %}
+{% include assets\v2\js\components\hs.validation.js %}
+{% include assets\v2\js\components\hs.show-animation.js %}
 
 <script type="text/javascript">
     $(window).on('load', function () {
