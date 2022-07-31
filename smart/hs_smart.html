@@ -46,6 +46,12 @@ $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
 $(document).on('ready', function () {
 // initialization of header
 $.HSCore.components.HSHeader.init($('#header'));
+// initialization of malihu scrollbar
+var windW = window.innerWidth;
+
+if(windW < 767.98) {
+$.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+}
 
 // initialization of unfold component
 $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
