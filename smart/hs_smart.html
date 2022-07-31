@@ -25,7 +25,7 @@ $('.js-mega-menu').HSMegaMenu({
 event: 'hover',
 pageContainer: $('.container'),
 breakpoint: 767.98,
-hideTimeOut: 100
+hideTimeOut: 0
 });
 
 // initialization of svg injector module
@@ -35,51 +35,22 @@ $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
 $(document).on('ready', function () {
 // initialization of header
 $.HSCore.components.HSHeader.init($('#header'));
+
 // initialization of malihu scrollbar
 var windW = window.innerWidth;
 
 if(windW < 767.98) {
 $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
 }
+});
 
-// initialization of unfold component
-$.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
-afterOpen: function () {
-$(this).find('input[type="search"]').focus();
+$(window).on('resize', function () {
+// initialization of malihu scrollbar
+var windW = window.innerWidth;
+
+if(windW < 767.98) {
+$.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+} else {
+$('.js-scrollbar').mCustomScrollbar("destroy");
 }
 });
-
-// initialization of forms
-$.HSCore.components.HSFocusState.init();
-
-// initialization of form validation
-$.HSCore.components.HSValidation.init('.js-validate', {
-rules: {
-confirmPassword: {
-equalTo: '#signupPassword'
-}
-}
-});
-
-// initialization of fancybox
-$.HSCore.components.HSFancyBox.init('.js-fancybox');
-
-// initialization of slick carousel
-$.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
-
-// initialization of go to
-$.HSCore.components.HSGoTo.init('.js-go-to');
-
-// initialization of autonomous popups
-$.HSCore.components.HSModalWindow.init('[data-modal-target]', '.js-modal-window', {
-autonomous: true
-});
-
-// initialization of quantity counter
-$.HSCore.components.HSQantityCounter.init('.js-quantity');
-
-
-});
-
-
-
