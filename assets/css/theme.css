@@ -5514,7 +5514,7 @@ a.badge-indigo:focus, a.badge-indigo.focus {
 
 .list-group-item {
   position: relative;
-  display: block;
+  display: list-item !important;
   padding: 0.425rem 1.25rem;
   margin-bottom: -1px;
   background-color: #fff;

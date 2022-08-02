@@ -101,7 +101,7 @@ $(document).ready(function() {
                 item[$(this).attr('data-qty')] = $(this).attr('data-discount');
             });
         }
-        return {2: '5', 3:'10'};
+        return item;
     }
 
 //change bundle edition function

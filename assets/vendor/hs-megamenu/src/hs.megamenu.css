@@ -175,12 +175,3 @@
 	-ms-transform: translate(-50%, 0);
 	transform: translate(-50%, 0);
 }
-div[aria-labelledby="demosMegaMenu"]{
-	left: 405px;
-}
-div[aria-labelledby="homeMegaMenu-Free-Extensions"]{
-	left: 730px;
-}
-div[aria-labelledby="homeMegaMenu-Services"]{
-    left: 810px;
-}
