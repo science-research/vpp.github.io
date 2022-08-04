@@ -1,3 +1,5 @@
+{% assign products = site.data.products %}
+
 <div class="js-slick-carousel u-slick u-slick--gutters-3 u-slick--equal-height"
      data-slides-show="4"
      data-slides-scroll="3"
@@ -19,11 +21,12 @@
          "slidesToShow": 1
        }
      }]'>
-    <div class="js-slide">
+    {% for product in products %}
+        <div class="js-slide">
         <!-- Product -->
         <div class="card text-center w-100">
             <div class="position-relative">
-                <img class="card-img-top" src="https://s3.cloud.cmctelecom.vn/tinhte2/2020/03/4928374_oppo_find_x2.jpg" alt="Image Description">
+                <img class="card-img-top" src="{{ product.image }}" alt="Image Description">
 
                 <div class="position-absolute top-0 right-0 pt-3 pr-3">
                     <button type="button" class="btn btn-sm btn-icon btn-outline-secondary rounded-circle" data-toggle="tooltip" data-placement="top" title="Save for later">
@@ -34,290 +37,66 @@
 
             <div class="card-body pt-4 px-4 pb-0">
                 <div class="mb-2">
-                    <a class="d-inline-block text-secondary small font-weight-medium mb-1" href="#">Accessories</a>
+                    <a class="d-inline-block text-secondary small font-weight-medium mb-1" href="#">{{ product.category }}</a>
                     <h4 class="font-size-1 font-weight-normal">
-                        <a class="text-secondary" href="#">Front mesh baseball cap with signature logo</a>
+                        <a class="text-dark font-weight-bold" href="#">{{ product.title | upcase }}</a>
                     </h4>
                     <div class="d-block">
-                        <span class="font-weight-medium">$8.88</span>
+                        <span class="font-weight-medium">${{ product.price }}</span>
                     </div>
                 </div>
             </div>
 
             <div class="card-footer border-0 pt-0 pb-4 px-4">
+                <!-- Review -->
                 <div class="mb-3">
-                    <a class="d-inline-flex align-items-center small" href="#">
-                        <div class="text-warning mr-2">
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="far fa-star text-muted"></small>
+                    {% assign reviewRatings = site.data.productRatings[product.sku] %}
+                    <div class="rating font-size-1">
+                        {% if reviewRatings.rating_hundred %}
+                        <div class="rating-upper" style="color: #FEE75C;width:{{ reviewRatings.rating_hundred }}%"
+                             title="{{ reviewRatings.rating_hundred }}">
+                            <span class="font-size-2">&clubs;</span>
+                            <span class="font-size-2">&clubs;</span>
+                            <span class="font-size-2">&clubs;</span>
+                            <span class="font-size-2">&clubs;</span>
+                            <span class="font-size-2">&clubs;</span>
                         </div>
-                        <span class="text-secondary">31</span>
-                    </a>
-                </div>
-                <button type="button" class="btn btn-sm btn-outline-primary btn-sm-wide btn-pill transition-3d-hover">Add to Cart</button>
-            </div>
-        </div>
-        <!-- End Product -->
-    </div>
-    <div class="js-slide">
-        <!-- Product -->
-        <div class="card text-center w-100">
-            <div class="position-relative">
-                <img class="card-img-top" src="https://s3.cloud.cmctelecom.vn/tinhte2/2020/03/4928374_oppo_find_x2.jpg" alt="Image Description">
+                        {% else %}
+                        <div class="rating-upper" style="color: #FEE75C;width:0%"
+                             title="{{ reviewRatings.rating_hundred }}">
+                            <span class="font-size-2">&clubs;</span>
+                            <span class="font-size-2">&clubs;</span>
+                            <span class="font-size-2">&clubs;</span>
+                            <span class="font-size-2">&clubs;</span>
+                            <span class="font-size-2">&clubs;</span>
+                        </div>
+                        {% endif %}
 
-                <div class="position-absolute top-0 right-0 pt-3 pr-3">
-                    <button type="button" class="btn btn-sm btn-icon btn-outline-secondary rounded-circle" data-toggle="tooltip" data-placement="top" title="Save for later">
-                        <span class="fas fa-heart btn-icon__inner"></span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="card-body pt-4 px-4 pb-0">
-                <div class="mb-2">
-                    <a class="d-inline-block text-secondary small font-weight-medium mb-1" href="#">Accessories</a>
-                    <h4 class="font-size-1 font-weight-normal">
-                        <a class="text-secondary" href="#">Front mesh baseball cap with signature logo</a>
-                    </h4>
-                    <div class="d-block">
-                        <span class="font-weight-medium">$8.88</span>
+                        <div class="rating-lower">
+                            <span class="font-size-2">&clubs;</span>
+                            <span class="font-size-2">&clubs;</span>
+                            <span class="font-size-2">&clubs;</span>
+                            <span class="font-size-2">&clubs;</span>
+                            <span class="font-size-2">&clubs;</span>
+                        </div>
                     </div>
+                    {% assign review_count = reviewRatings.count %}
+                    <span class="small text-dark">
+                                    {% if review_count == 1 %}
+                                        {{ review_count }} Review
+                                    {% elsif review_count > 1 %}
+                                        {{ review_count }} Review(s)
+                                    {% else %}
+                                        No Review
+                                    {% endif %}
+                                </span>
                 </div>
-            </div>
-
-            <div class="card-footer border-0 pt-0 pb-4 px-4">
-                <div class="mb-3">
-                    <a class="d-inline-flex align-items-center small" href="#">
-                        <div class="text-warning mr-2">
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="far fa-star text-muted"></small>
-                        </div>
-                        <span class="text-secondary">31</span>
-                    </a>
-                </div>
+                <!-- End Review -->
                 <button type="button" class="btn btn-sm btn-outline-primary btn-sm-wide btn-pill transition-3d-hover">Add to Cart</button>
             </div>
         </div>
         <!-- End Product -->
     </div>
-    <div class="js-slide">
-        <!-- Product -->
-        <div class="card text-center w-100">
-            <div class="position-relative">
-                <img class="card-img-top" src="https://s3.cloud.cmctelecom.vn/tinhte2/2020/03/4928374_oppo_find_x2.jpg" alt="Image Description">
+    {% endfor %}
 
-                <div class="position-absolute top-0 right-0 pt-3 pr-3">
-                    <button type="button" class="btn btn-sm btn-icon btn-outline-secondary rounded-circle" data-toggle="tooltip" data-placement="top" title="Save for later">
-                        <span class="fas fa-heart btn-icon__inner"></span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="card-body pt-4 px-4 pb-0">
-                <div class="mb-2">
-                    <a class="d-inline-block text-secondary small font-weight-medium mb-1" href="#">Accessories</a>
-                    <h4 class="font-size-1 font-weight-normal">
-                        <a class="text-secondary" href="#">Front mesh baseball cap with signature logo</a>
-                    </h4>
-                    <div class="d-block">
-                        <span class="font-weight-medium">$8.88</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-footer border-0 pt-0 pb-4 px-4">
-                <div class="mb-3">
-                    <a class="d-inline-flex align-items-center small" href="#">
-                        <div class="text-warning mr-2">
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="far fa-star text-muted"></small>
-                        </div>
-                        <span class="text-secondary">31</span>
-                    </a>
-                </div>
-                <button type="button" class="btn btn-sm btn-outline-primary btn-sm-wide btn-pill transition-3d-hover">Add to Cart</button>
-            </div>
-        </div>
-        <!-- End Product -->
-    </div>
-    <div class="js-slide">
-        <!-- Product -->
-        <div class="card text-center w-100">
-            <div class="position-relative">
-                <img class="card-img-top" src="https://s3.cloud.cmctelecom.vn/tinhte2/2020/03/4928374_oppo_find_x2.jpg" alt="Image Description">
-
-                <div class="position-absolute top-0 right-0 pt-3 pr-3">
-                    <button type="button" class="btn btn-sm btn-icon btn-outline-secondary rounded-circle" data-toggle="tooltip" data-placement="top" title="Save for later">
-                        <span class="fas fa-heart btn-icon__inner"></span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="card-body pt-4 px-4 pb-0">
-                <div class="mb-2">
-                    <a class="d-inline-block text-secondary small font-weight-medium mb-1" href="#">Accessories</a>
-                    <h4 class="font-size-1 font-weight-normal">
-                        <a class="text-secondary" href="#">Front mesh baseball cap with signature logo</a>
-                    </h4>
-                    <div class="d-block">
-                        <span class="font-weight-medium">$8.88</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-footer border-0 pt-0 pb-4 px-4">
-                <div class="mb-3">
-                    <a class="d-inline-flex align-items-center small" href="#">
-                        <div class="text-warning mr-2">
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="far fa-star text-muted"></small>
-                        </div>
-                        <span class="text-secondary">31</span>
-                    </a>
-                </div>
-                <button type="button" class="btn btn-sm btn-outline-primary btn-sm-wide btn-pill transition-3d-hover">Add to Cart</button>
-            </div>
-        </div>
-        <!-- End Product -->
-    </div>
-    <div class="js-slide">
-        <!-- Product -->
-        <div class="card text-center w-100">
-            <div class="position-relative">
-                <img class="card-img-top" src="https://s3.cloud.cmctelecom.vn/tinhte2/2020/03/4928374_oppo_find_x2.jpg" alt="Image Description">
-
-                <div class="position-absolute top-0 right-0 pt-3 pr-3">
-                    <button type="button" class="btn btn-sm btn-icon btn-outline-secondary rounded-circle" data-toggle="tooltip" data-placement="top" title="Save for later">
-                        <span class="fas fa-heart btn-icon__inner"></span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="card-body pt-4 px-4 pb-0">
-                <div class="mb-2">
-                    <a class="d-inline-block text-secondary small font-weight-medium mb-1" href="#">Accessories</a>
-                    <h4 class="font-size-1 font-weight-normal">
-                        <a class="text-secondary" href="#">Front mesh baseball cap with signature logo</a>
-                    </h4>
-                    <div class="d-block">
-                        <span class="font-weight-medium">$8.88</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-footer border-0 pt-0 pb-4 px-4">
-                <div class="mb-3">
-                    <a class="d-inline-flex align-items-center small" href="#">
-                        <div class="text-warning mr-2">
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="far fa-star text-muted"></small>
-                        </div>
-                        <span class="text-secondary">31</span>
-                    </a>
-                </div>
-                <button type="button" class="btn btn-sm btn-outline-primary btn-sm-wide btn-pill transition-3d-hover">Add to Cart</button>
-            </div>
-        </div>
-        <!-- End Product -->
-    </div>
-    <div class="js-slide">
-        <!-- Product -->
-        <div class="card text-center w-100">
-            <div class="position-relative">
-                <img class="card-img-top" src="https://s3.cloud.cmctelecom.vn/tinhte2/2020/03/4928374_oppo_find_x2.jpg" alt="Image Description">
-
-                <div class="position-absolute top-0 right-0 pt-3 pr-3">
-                    <button type="button" class="btn btn-sm btn-icon btn-outline-secondary rounded-circle" data-toggle="tooltip" data-placement="top" title="Save for later">
-                        <span class="fas fa-heart btn-icon__inner"></span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="card-body pt-4 px-4 pb-0">
-                <div class="mb-2">
-                    <a class="d-inline-block text-secondary small font-weight-medium mb-1" href="#">Accessories</a>
-                    <h4 class="font-size-1 font-weight-normal">
-                        <a class="text-secondary" href="#">Front mesh baseball cap with signature logo</a>
-                    </h4>
-                    <div class="d-block">
-                        <span class="font-weight-medium">$8.88</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-footer border-0 pt-0 pb-4 px-4">
-                <div class="mb-3">
-                    <a class="d-inline-flex align-items-center small" href="#">
-                        <div class="text-warning mr-2">
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="far fa-star text-muted"></small>
-                        </div>
-                        <span class="text-secondary">31</span>
-                    </a>
-                </div>
-                <button type="button" class="btn btn-sm btn-outline-primary btn-sm-wide btn-pill transition-3d-hover">Add to Cart</button>
-            </div>
-        </div>
-        <!-- End Product -->
-    </div>
-    <div class="js-slide">
-        <!-- Product -->
-        <div class="card text-center w-100">
-            <div class="position-relative">
-                <img class="card-img-top" src="https://s3.cloud.cmctelecom.vn/tinhte2/2020/03/4928374_oppo_find_x2.jpg" alt="Image Description">
-
-                <div class="position-absolute top-0 right-0 pt-3 pr-3">
-                    <button type="button" class="btn btn-sm btn-icon btn-outline-secondary rounded-circle" data-toggle="tooltip" data-placement="top" title="Save for later">
-                        <span class="fas fa-heart btn-icon__inner"></span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="card-body pt-4 px-4 pb-0">
-                <div class="mb-2">
-                    <a class="d-inline-block text-secondary small font-weight-medium mb-1" href="#">Accessories</a>
-                    <h4 class="font-size-1 font-weight-normal">
-                        <a class="text-secondary" href="#">Front mesh baseball cap with signature logo</a>
-                    </h4>
-                    <div class="d-block">
-                        <span class="font-weight-medium">$8.88</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-footer border-0 pt-0 pb-4 px-4">
-                <div class="mb-3">
-                    <a class="d-inline-flex align-items-center small" href="#">
-                        <div class="text-warning mr-2">
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="far fa-star text-muted"></small>
-                        </div>
-                        <span class="text-secondary">31</span>
-                    </a>
-                </div>
-                <button type="button" class="btn btn-sm btn-outline-primary btn-sm-wide btn-pill transition-3d-hover">Add to Cart</button>
-            </div>
-        </div>
-        <!-- End Product -->
-    </div>
 </div>

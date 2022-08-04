@@ -1,0 +1,22 @@
+{
+    "iphone-14": {
+        "count": 119,
+        "rating": "4.9",
+        "rating_hundred": "98"
+    },
+    "iphone-14-pro": {
+        "count": 180,
+        "rating": "5.0",
+        "rating_hundred": "99"
+    },
+    "iphone-14-promax": {
+        "count": 165,
+        "rating": "4.9",
+        "rating_hundred": "97"
+    },
+    "iphone-15": {
+        "count": 64,
+        "rating": "2",
+        "rating_hundred": "20"
+    }
+}
