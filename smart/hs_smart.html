@@ -20,7 +20,6 @@ permalink:  "skin/frontend/js/hs_smart.js"
 
 
 $(window).on('load', function () {
-// initialization of HSMegaMenu component
 $('.js-mega-menu').HSMegaMenu({
 event: 'hover',
 pageContainer: $('.container'),
@@ -33,15 +32,22 @@ $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
 $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
 });
 
-
 $(document).on('ready', function () {
 // initialization of header
 $.HSCore.components.HSHeader.init($('#header'));
+
+// initialization of malihu scrollbar
+var windW = window.innerWidth;
+
+if(windW < 767.98) {
+$.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+}
 });
 
 $(window).on('resize', function () {
 // initialization of malihu scrollbar
 var windW = window.innerWidth;
+
 if(windW < 767.98) {
 $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
 } else {

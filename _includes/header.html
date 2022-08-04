@@ -1,13 +1,68 @@
 <!-- ========== HEADER ========== -->
-<header id="header" class="u-header u-header--bg-transparent u-header--white-nav-links-md u-header--abs-top"
-        data-header-fix-moment="500"
-        data-header-fix-effect="slide">
+<header id="header" class="u-header">
     <div class="u-header__section">
+        <!-- Topbar -->
+        <div class="container u-header__hide-content pt-2">
+            <div class="d-flex align-items-center">
+                <div class="ml-auto">
+                    <!-- Jump To -->
+                    <div class="d-inline-block d-sm-none position-relative mr-4">
+                        <a id="jumpToDropdownInvoker" class="dropdown-nav-link dropdown-toggle d-flex align-items-center" href="javascript:;" role="button"
+                           aria-controls="jumpToDropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                           data-unfold-event="hover"
+                           data-unfold-target="#jumpToDropdown"
+                           data-unfold-type="css-animation"
+                           data-unfold-duration="300"
+                           data-unfold-delay="300"
+                           data-unfold-hide-on-scroll="true"
+                           data-unfold-animation-in="slideInUp"
+                           data-unfold-animation-out="fadeOut">
+                            Jump to
+                        </a>
+
+                        <div id="jumpToDropdown" class="dropdown-menu dropdown-unfold" aria-labelledby="jumpToDropdownInvoker">
+                            <a class="dropdown-item" href="#">+1 062 109 92 22</a>
+                            <a class="dropdown-item" href="#">Upload your resume</a>
+                        </div>
+                    </div>
+                    <!-- End Jump To -->
+
+                    <!-- Sign In -->
+                    <div class="d-inline-block d-sm-none">
+                        <a class="small font-weight-medium text-uppercase" href="#">Sign in</a>
+                    </div>
+                    <!-- End Sign In -->
+
+                    <!-- Links -->
+                    <div class="d-none d-sm-inline-block ml-sm-auto">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item">
+                                <a class="u-header__navbar-link" href="#">
+                                    <span class="far fa-file-alt mr-1"></span>
+                                    Upload
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="u-header__navbar-link" href="#">
+                                    <span class="fas fa-user-circle mr-1"></span>
+                                    Sign in
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- End Links -->
+                </div>
+            </div>
+        </div>
+        <!-- End Topbar -->
+
         <div id="logoAndNav" class="container">
             <!-- Nav -->
-            <nav class="navbar navbar-expand-md u-header__navbar u-header__navbar--no-space">
+            <nav class="js-mega-menu navbar navbar-expand-md u-header__navbar u-header__navbar--no-space">
                 <!-- Logo -->
-                <img class="img-fluid rounded" src="{{ site.url }}/assets/img/logo.png" width="60" alt="logo">
+                <img class="rounded" src="{{site.url}}/assets/img/logo.png" width="60">
                 <!-- End Logo -->
 
                 <!-- Responsive Toggle Button -->
@@ -25,16 +80,36 @@
 
                 <!-- Navigation -->
                 <div id="navBar" class="collapse navbar-collapse u-header__navbar-collapse">
-                    <ul class="js-scroll-nav navbar-nav align-items-md-center u-header__navbar-nav font-weight-bold w-100 ml-10">
+                    <ul class="navbar-nav u-header__navbar-nav font-weight-bold">
+                        <!-- Link -->
                         <li class="nav-item u-header__nav-item">
-                            <a class="nav-link u-header__nav-link" href="#home-section">HOME</a>
+                            <a class="nav-link u-header__nav-link" href="#">HOME</a>
                         </li>
+                        <!-- End Link -->
+
+                        <!-- Link -->
                         <li class="nav-item u-header__nav-item">
-                            <a class="nav-link u-header__nav-link" href="#pages-section">PAGES</a>
+                            <a class="nav-link u-header__nav-link" href="#">ALL PRODUCTS</a>
                         </li>
+                        <!-- End Link -->
+                        <!-- Link -->
                         <li class="nav-item u-header__nav-item">
-                            <a class="nav-link u-header__nav-link" href="#blog-section">SALES</a>
+                            <a class="nav-link u-header__nav-link" href="#">BLOG</a>
                         </li>
+                        <!-- End Link -->
+                        <!-- Link -->
+                        <li class="nav-item u-header__nav-item">
+                            <a class="nav-link u-header__nav-link" href="#">DOCS</a>
+                        </li>
+                        <!-- End Link -->
+
+                        <!-- Button -->
+                        <li class="nav-item u-header__nav-last-item">
+                            <a class="btn btn-sm btn-primary transition-3d-hover" href="https://themes.getbootstrap.com/product/front-multipurpose-responsive-template/" target="_blank">
+                                Post Jobs
+                            </a>
+                        </li>
+                        <!-- End Button -->
                     </ul>
                 </div>
                 <!-- End Navigation -->
