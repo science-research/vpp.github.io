@@ -30,25 +30,18 @@ hideTimeOut: 0
 
 // initialization of svg injector module
 $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
+$.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
 });
 
+
 $(document).on('ready', function () {
-$.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
 // initialization of header
 $.HSCore.components.HSHeader.init($('#header'));
-
-// initialization of malihu scrollbar
-var windW = window.innerWidth;
-
-if(windW < 767.98) {
-$.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
-}
 });
 
 $(window).on('resize', function () {
 // initialization of malihu scrollbar
 var windW = window.innerWidth;
-
 if(windW < 767.98) {
 $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
 } else {

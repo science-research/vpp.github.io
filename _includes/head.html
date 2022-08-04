@@ -4,3 +4,14 @@
 <link rel="stylesheet" href="{{ site.url }}/assets/css/theme.css">
 <link rel="stylesheet" href="{{ site.url }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
 <link rel="stylesheet" href="{{ site.url }}/assets/vendor/slick-carousel/slick/slick.css">
+
+<style>
+    .tab-content.product-tab .tab-pane {
+        display: block;    /* undo display:none          */
+        height: 0;         /* height:0 is also invisible */
+        overflow: hidden;  /* no-overflow                */
+    }
+    .tab-content.product-tab .active {
+        height: auto;      /* let the content decide it  */
+    }
+</style>
