@@ -30,9 +30,8 @@ hideTimeOut: 0
 // initialization of svg injector module
 $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
 $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
-});
+$.HSCore.components.HSGoTo.init('.js-go-to');
 
-$(document).on('ready', function () {
 // initialization of header
 $.HSCore.components.HSHeader.init($('#header'));
 
@@ -43,6 +42,7 @@ if(windW < 767.98) {
 $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
 }
 });
+
 
 $(window).on('resize', function () {
 // initialization of malihu scrollbar
