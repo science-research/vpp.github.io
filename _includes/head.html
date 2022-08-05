@@ -23,5 +23,37 @@
     .rating {display: inline-block;}
     .rating-upper {position: absolute;z-index: 1;display: flex;overflow: hidden;}
     .rating-lower {display: flex;z-index: 0;}
+    .box{
+        position: relative;
+    }
 
+    .box .search-box {
+        width: 50px;
+        background: none;
+        border: 2px solid black;
+        border-radius: 50px;
+        box-sizing: border-box;
+        font-size: 20px;
+        color: black;
+        outline: none;
+        transition: .5s;
+    }
+    .box:hover input{
+        width: 300px;
+        background: white;
+        border-radius: 10px;
+    }
+    .box i{
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(-50%,-50%);
+        font-size: 24px;
+        color: black;
+        transition: .2s;
+    }
+    .box:hover i{
+        opacity: 0;
+        z-index: -1;
+    }
 </style>
